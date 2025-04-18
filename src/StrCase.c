@@ -19,45 +19,45 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- * 
+ *
  */
 
 #include "libcnano.h"
 
-char * StrToLower(char * string)
+char * StrToLower ( char * string )
 {
 	char * retval = string;
 
-	while((string != NULL) && (*string != 0))
+	while ( ( string != NULL ) && ( *string != 0 ) )
 	{
 		char c = *string;
 
-		if((c >= 'A')&&(c <= 'Z'))
+		if ( ( c >= 'A' ) && ( c <= 'Z' ) )
 		{
-			*string = c + ('a' - 'A');
+			*string = c + ( 'a' - 'A' );
 		}
 
 		string++;
 	}
 
-	return(retval);
+	return ( retval );
 }
 
-char * StrToUpper(char * string)
+char * StrToUpper ( char * string )
 {
 	char * retval = string;
 
-	while((string != NULL) && (*string != 0))
+	while ( ( string != NULL ) && ( *string != 0 ) )
 	{
 		char c = *string;
 
-		if((c >= 'a')&&(c <= 'z'))
+		if ( ( c >= 'a' ) && ( c <= 'z' ) )
 		{
-			*string = c - ('a' - 'A');
+			*string = c - ( 'a' - 'A' );
 		}
 
 		string++;
 	}
 
-	return(retval);
+	return ( retval );
 }

@@ -19,17 +19,18 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- * 
+ *
  */
 
 #include "libcnano.h"
 
 
-char * StrTrimLeft(char * string)
+char * StrTrimLeft ( char * string )
 {
 	char * start = string;
+
 	/* eat spaces and tabs in front of string */
-	while((start != NULL) && ((*start == ' ')||(*start == '\t')))
+	while ( ( start != NULL ) && ( ( *start == ' ' ) || ( *start == '\t' ) ) )
 	{
 		start++;
 	}
@@ -37,33 +38,36 @@ char * StrTrimLeft(char * string)
 	return start;
 }
 
-char * StrTrimRight(char * string)
+char * StrTrimRight ( char * string )
 {
-    char * start = string;
+	char * start = string;
 
-	if(start != NULL)
-	{		
+	if ( start != NULL )
+	{
 		/* Find the last non-whitespace character */
 		char * end = start;  /* Start with the updated position */
-		while (*end != '\0')
+
+		while ( *end != '\0' )
 		{
 			end++;
 		}
+
 		end--;  /* Move back to the last character of the string */
 
-		while ((end >= start) && ((*end == ' ') || (*end == '\t')))
+		while ( ( end >= start ) && ( ( *end == ' ' ) || ( *end == '\t' ) ) )
 		{
 			end--;  /* Adjust to skip trailing spaces and tabs */
 		}
 
 		/* Null-terminate the new trimmed string */
-		*(end + 1) = '\0';
+		* ( end + 1 ) = '\0';
 	}
-    return start;
+
+	return start;
 }
 
 
-char * StrTrim(char * string)
-{    
-    return StrTrimRight(StrTrimLeft(string));
+char * StrTrim ( char * string )
+{
+	return StrTrimRight ( StrTrimLeft ( string ) );
 }

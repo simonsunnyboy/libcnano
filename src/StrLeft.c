@@ -19,78 +19,78 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- * 
+ *
  */
 
 #include <stddef.h>
 #include "libcnano.h"
 
-bool StrLeft(char * src, char * left_part)
+bool StrLeft ( char * src, char * left_part )
 {
-    bool match = true;
-    
-    do
-    {
-        if(*src++ != *left_part++)
-        {
-            match = false;
-        }
-    }
-    while((match == true)&&(*left_part != '\0'));
-    
-    return match;
+	bool match = true;
+
+	do
+	{
+		if ( *src++ != *left_part++ )
+		{
+			match = false;
+		}
+	}
+	while ( ( match == true ) && ( *left_part != '\0' ) );
+
+	return match;
 }
 
-bool StrRight(char * src, char * right_part)
+bool StrRight ( char * src, char * right_part )
 {
-    bool match = true;
+	bool match = true;
+	/* Traverse to the end of both strings */
+	char * src_end = src;
+	char * right_end = right_part;
 
-    /* Traverse to the end of both strings */
-    char * src_end = src;
-    char * right_end = right_part;
+	while ( *src_end != '\0' ) src_end++;
 
-    while (*src_end != '\0') src_end++;
-    while (*right_end != '\0') right_end++;
+	while ( *right_end != '\0' ) right_end++;
 
-    /* Calculate the lengths by subtracting pointers */
-    size_t src_len = src_end - src;
-    size_t right_len = right_end - right_part;
+	/* Calculate the lengths by subtracting pointers */
+	size_t src_len = src_end - src;
+	size_t right_len = right_end - right_part;
 
-    /* Ensure `right_part` can fit within `src` */
-    if (right_len > src_len)
-    {
-        return false;
-    }
+	/* Ensure `right_part` can fit within `src` */
+	if ( right_len > src_len )
+	{
+		return false;
+	}
 
-    /* Start comparison from the end of `src` */
-    src_end = src + (src_len - right_len);
+	/* Start comparison from the end of `src` */
+	src_end = src + ( src_len - right_len );
 
-    while ((*right_part != '\0') && match)
-    {
-        if (*src_end++ != *right_part++)
-        {
-            match = false;
-        }
-    }
+	while ( ( *right_part != '\0' ) && match )
+	{
+		if ( *src_end++ != *right_part++ )
+		{
+			match = false;
+		}
+	}
 
-    return match;
+	return match;
 }
 
-bool StrMid(char * src, uint32_t start_pos, char * match_str)
+bool StrMid ( char * src, uint32_t start_pos, char * match_str )
 {
-    bool match = false;
-    
-    while((start_pos > 0)&&(*src != '\0'))
-    {
-        src++;
-        start_pos--;
-    }
-    
-    /* is the string longer than the desired starting position? */
-    if(*src != '\0')
-    {
-        match = StrLeft(src, match_str);
-    }
-    
-    return match;
+	bool match = false;
+
+	while ( ( start_pos > 0 ) && ( *src != '\0' ) )
+	{
+		src++;
+		start_pos--;
+	}
+
+	/* is the string longer than the desired starting position? */
+	if ( *src != '\0' )
+	{
+		match = StrLeft ( src, match_str );
+	}
+
+	return match;
 }

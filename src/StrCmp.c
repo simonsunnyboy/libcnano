@@ -26,64 +26,64 @@
 
 #include "libcnano.h"
 
-int32_t StrNcmp(char * str1, char * str2, int32_t limit)
+int32_t StrNcmp ( char * str1, char * str2, int32_t limit )
 {
-    for(; ((--limit) && (*str1 == *str2)); ++str1, ++str2)
-    {
-        if(*str1 == '\0')
-            return(0);
-    }
+	for ( ; ( ( --limit ) && ( *str1 == *str2 ) ); ++str1, ++str2 )
+	{
+		if ( *str1 == '\0' )
+			return ( 0 );
+	}
 
-    return(*str1 - *str2);
+	return ( *str1 - *str2 );
 }
 
-char * StrChr(char * string, char symbol)
+char * StrChr ( char * string, char symbol )
 {
-    do
-    {
-        if(*string == symbol)
-        {
-            return(string);
-        }
-    }
-    while(*string++);
+	do
+	{
+		if ( *string == symbol )
+		{
+			return ( string );
+		}
+	}
+	while ( *string++ );
 
-    return(NULL);
+	return ( NULL );
 }
 
-int32_t StrCmp(char * str1, char * str2)
+int32_t StrCmp ( char * str1, char * str2 )
 {
-    for(; *str1 == *str2; ++str1, ++str2)
-    {
-        if(*str1 == '\0')
-        {
-            return(0);
-        }
-    }
+	for ( ; *str1 == *str2; ++str1, ++str2 )
+	{
+		if ( *str1 == '\0' )
+		{
+			return ( 0 );
+		}
+	}
 
-    return(*str1 - *str2);
+	return ( *str1 - *str2 );
 }
 
-char * StrStr(char * string, char * pattern)
+char * StrStr ( char * string, char * pattern )
 {
 	char * ret = NULL;  /* return NULL if string is not found */
-	int32_t plen = StrLen(pattern);
+	int32_t plen = StrLen ( pattern );
 
 	/* search only makes sense if pattern length is maximum as long as the target string: */
-	if(StrLen(string) >= plen)
+	if ( StrLen ( string ) >= plen )
 	{
-		while((string = StrChr(string, *pattern)))  /* search for first character of pattern */
+		while ( ( string = StrChr ( string, *pattern ) ) ) /* search for first character of pattern */
 		{
-			if(StrNcmp(string, pattern, plen) == 0)
+			if ( StrNcmp ( string, pattern, plen ) == 0 )
 			{
 				/* search string was found, return pointer to substring  */
 				ret = string;
 				break;
 			}
+
 			++string;
 		}
-
 	}
 
-	return(ret);
+	return ( ret );
 }

@@ -19,41 +19,40 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- * 
+ *
  */
 
 #include "libcnano.h"
 
-void StrCpy(char * src,  char * dest)
+void StrCpy ( char * src,  char * dest )
 {
-	while(*src != '\0')
+	while ( *src != '\0' )
 	{
 		*dest++=*src++;
 	}
+
 	*dest='\0';
-	
 	return;
 }
 
-void StrMidCpy(char * src, uint32_t start_pos, char * dest)
+void StrMidCpy ( char * src, uint32_t start_pos, char * dest )
 {
-    
-    /* find start of string */
-    while((start_pos > 0)&&(*dest != '\0'))
-    {
-        dest++;
-        start_pos--;
-    }
-    
-    /* is the string longer than the desired starting position? */
-    if(*dest != '\0')
-    {
-       	while((*dest != '\0')&&(*src != '\0'))
+	/* find start of string */
+	while ( ( start_pos > 0 ) && ( *dest != '\0' ) )
+	{
+		dest++;
+		start_pos--;
+	}
+
+	/* is the string longer than the desired starting position? */
+	if ( *dest != '\0' )
+	{
+		while ( ( *dest != '\0' ) && ( *src != '\0' ) )
 		{
 			*dest++=*src ++;
 		}
-    }
-    
-    return;
+	}
+
+	return;
 }
 

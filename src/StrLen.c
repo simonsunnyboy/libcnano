@@ -19,16 +19,16 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- * 
+ *
  */
 
 #include "libcnano.h"
 
-int32_t StrLen(char * string)
+int32_t StrLen ( char * string )
 {
 	int32_t len = 0;
 
-	while(*string++)
+	while ( *string++ )
 	{
 		len++;
 	}

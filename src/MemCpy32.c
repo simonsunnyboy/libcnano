@@ -19,7 +19,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- * 
+ *
  */
 
 #include <stdint.h>
@@ -33,38 +33,37 @@ struct long8
 };
 
 
-void MemCpy32(void * src, void * dest, uint32_t len)
+void MemCpy32 ( void * src, void * dest, uint32_t len )
 {
-    struct long8 * s = (struct long8 *)src; 
-	struct long8 * d = (struct long8 *)dest; 
+	struct long8 * s = ( struct long8 * ) src;
+	struct long8 * d = ( struct long8 * ) dest;
 
-	while(len > sizeof(struct long8))
+	while ( len > sizeof ( struct long8 ) )
 	{
 		*d++=*s++;
-		
-		len -= sizeof(struct long8);
+		len -= sizeof ( struct long8 );
 	}
 
-	if(len > 0)
+	if ( len > 0 )
 	{
-		MemCpy(s,d, len);
+		MemCpy ( s,d, len );
 	}
-	
+
 	return;
 }
 
-void MemCpy(void * src, void * dest, uint32_t len)
+void MemCpy ( void * src, void * dest, uint32_t len )
 {
-	if (len >= sizeof(struct long8))
+	if ( len >= sizeof ( struct long8 ) )
 	{
-		MemCpy32(src, dest, len);
+		MemCpy32 ( src, dest, len );
 	}
 	else
 	{
-		uint8_t * s = (uint8_t *) src;
-		uint8_t * d = (uint8_t *) dest;
+		uint8_t * s = ( uint8_t * ) src;
+		uint8_t * d = ( uint8_t * ) dest;
 
-		while(len > 0)
+		while ( len > 0 )
 		{
 			*d++=*s++;
 			len--;
