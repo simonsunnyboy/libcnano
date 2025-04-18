@@ -19,4 +19,5 @@ add_library(cnano
 	StrCpy.c
 	StrLeft.c
 	StrLen.c
+	StrTrim.c
 )

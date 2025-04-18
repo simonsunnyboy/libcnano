@@ -30,7 +30,7 @@
 
     #ifndef NULL
         #define NULL ((char *)0)  /* NULL definition if missing */
-    #endif // NULL
+    #endif
 
 	/* memory copy functions */
 
@@ -149,6 +149,51 @@
      */
     int32_t StrLen(char * string);
 
-    /** @todo implement StrStr, StrToUper, StrToLower, StrTrim  */
+    /** @todo implement StrStr, StrToUper, StrToLower */
+
+    /**
+     * @brief Removes leading and trailing spaces and tabs from a string in RAM
+     * @details
+     * This function processes the given string to remove any leading and trailing whitespace
+     * characters, specifically spaces (' ') and tabs ('\t'). It returns a pointer 
+     * to the first non-whitespace character of the string.
+     *
+     * @param string Pointer to the null-terminated string to be trimmed.
+     * @return char* Pointer to the modified string, starting from the first non-whitespace 
+     *         character.
+     *
+     * @note The original string is altered to relocate the trailing NUL.
+     */
+    char * StrTrim(char * string);
+
+    /**
+     * @brief Removes leading spaces and tabs from a string in RAM
+     * @details
+     * This function processes the given string to remove any leading whitespace
+     * characters, specifically spaces (' ') and tabs ('\t'). It returns a pointer 
+     * to the first non-whitespace character of the string.
+     *
+     * @param string Pointer to the null-terminated string to be trimmed.
+     * @return char* Pointer to the modified string, starting from the first non-whitespace 
+     *         character.
+     *
+     * @note The original string is not altered; only the starting pointer is adjusted.
+     */
+    char * StrTrimLeft(char * string);
+
+    /**
+     * @brief Removes trailing spaces and tabs from a string in RAM
+     *
+     * This function processes the given string to remove any trailing whitespace
+     * characters, specifically spaces (' ') and tabs ('\t'). It returns a pointer 
+     * to the first non-whitespace character of the string.
+     *
+     * @param string Pointer to the null-terminated string to be trimmed.
+     * @return char* Pointer to the modified string, starting from the first non-whitespace 
+     *         character.
+     *
+     * @note The original string is altered to relocate the trailing NUL.
+     */
+    char * StrTrimRight(char * string);
 
 #endif
