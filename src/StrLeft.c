@@ -2,7 +2,7 @@
  * libcnano for Atari ST
  * @file StrLeft.c
  * @brief implementation of StrLeft(), StrRight() and derivatives
- * @copyright (c) 2014 Matthias Arndt <marndt@asmsoftware.de>
+ * @copyright (c) 2014 Matthias Arndt <marndt@final-memory.org>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

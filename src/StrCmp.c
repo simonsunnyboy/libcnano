@@ -4,7 +4,7 @@
  * @brief implementation of StrCmp() and derivates
  * @details This sums up functions for string comparison.
  *
- * @copyright (c) 2017 Matthias Arndt <marndt@asmsoftware.de>
+ * @copyright (c) 2017 Matthias Arndt <marndt@final-memory.orgrg>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

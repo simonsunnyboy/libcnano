@@ -2,7 +2,7 @@
  * libcnano for Atari ST
  * @file libcnano.h
  * @brief common library header defining all available functions
- * @copyright (c) 2014/2016/2017 Matthias Arndt <marndt@asmsoftware.de>
+ * @copyright (c) 2014/2016/2017/2025 Matthias Arndt <marndt@final-memory.org>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,10 +41,5 @@
 	void StrCpy(char * src,  char * dest);
 	void StrMidCpy(char * dest, uint32_t start_pos, char * src);
     int32_t StrNcmp(char * str1, char * str2, int32_t limit);
-
-	/* File handling functions */
-	bool FileExists(const char * fname);
-	int32_t FileLength(const int32_t handle);
-	int32_t FileLengthName(const char * fname);
 
 #endif
