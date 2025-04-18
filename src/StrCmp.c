@@ -1,10 +1,10 @@
 /**
- * libcnano for Atari ST
+ * libcnano
  * @file StrCmp.c
  * @brief implementation of StrCmp() and derivates
  * @details This sums up functions for string comparison.
  *
- * @copyright (c) 2017 Matthias Arndt <marndt@final-memory.orgrg>
+ * @copyright (c) 2017 Matthias Arndt <marndt@final-memory.org>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,16 +26,6 @@
 
 #include "libcnano.h"
 
-/**
- * @brief compares at most the first n bytes from str1  str2.
- * @details
- * @param[in] str1 points to the first string
- * @param[in] str2 points to the second string
- * @param[in] limit denotes the number of characters to compare
- * @returns value < 0 then it indicates str1 is less than str2.
- * @returns value > 0 then it indicates str2 is less than str1.
- * @returns value = 0 then it indicates str1 is equal to str2 within the limit of characters
- */
 int32_t StrNcmp(char * str1, char * str2, int32_t limit)
 {
     for(; ((--limit) && (*str1 == *str2)); ++str1, ++str2)

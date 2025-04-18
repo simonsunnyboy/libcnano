@@ -1,8 +1,8 @@
 /**
  * libcnano
- * @file StrCpy.c
- * @brief implementation of StrCpy() and derivates
- * @copyright (c) 2014/2025 Matthias Arndt <marndt@final-memory.org>
+ * @file StrLen.c
+ * @brief implementation of StrLen()
+ * @copyright (c) 2025 Matthias Arndt <marndt@final-memory.org>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,36 +24,14 @@
 
 #include "libcnano.h"
 
-void StrCpy(char * src,  char * dest)
+int32_t StrLen(char * string)
 {
-	while(*src != '\0')
+	int32_t len = 0;
+
+	while(*string++)
 	{
-		*dest++=*src++;
+		len++;
 	}
-	*dest='\0';
-	
-	return;
-}
 
-void StrMidCpy(char * src, uint32_t start_pos, char * dest)
-{
-    
-    /* find start of string */
-    while((start_pos > 0)&&(*dest != '\0'))
-    {
-        dest++;
-        start_pos--;
-    }
-    
-    /* is the string longer than the desired starting position? */
-    if(*dest != '\0')
-    {
-       	while((*dest != '\0')&&(*src != '\0'))
-		{
-			*dest++=*src ++;
-		}
-    }
-    
-    return;
+	return len;
 }
-

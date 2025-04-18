@@ -1,8 +1,8 @@
 /**
- * libcnano for Atari ST
+ * libcnano
  * @file MemCpy32.c
- * @brief implementation of MemCpy32()
- * @copyright (c) 2014 Matthias Arndt <marndt@final-memory.org>
+ * @brief implementation of MemCpy32() and MemCpy()
+ * @copyright (c) 2014/25 Matthias Arndt <marndt@final-memory.org>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,18 +26,13 @@
 
 #include "libcnano.h"
 
+/** @brief helper structure to group 8 uint32_t values together for copying in chunks */
 struct long8
 {
 	uint32_t d[8];
 };
 
-/**
- * @brief copy memory in 32 byte chunks (8 longs)
- * @details If the length to copy is not dividable by 32, bytes are left.
- * @param[in] src pointer
- * @param[in] dest pointer
- * @param[in] len in bytes 
- */
+
 void MemCpy32(void * src, void * dest, uint32_t len)
 {
     struct long8 * s = (struct long8 *)src; 
@@ -49,7 +44,32 @@ void MemCpy32(void * src, void * dest, uint32_t len)
 		
 		len -= sizeof(struct long8);
 	}
+
+	if(len > 0)
+	{
+		MemCpy(s,d, len);
+	}
 	
 	return;
 }
 
+void MemCpy(void * src, void * dest, uint32_t len)
+{
+	if (len >= sizeof(struct long8))
+	{
+		MemCpy32(src, dest, len);
+	}
+	else
+	{
+		uint8_t * s = (uint8_t *) src;
+		uint8_t * d = (uint8_t *) dest;
+
+		while(len > 0)
+		{
+			*d++=*s++;
+			len--;
+		}
+	}
+
+	return;
+}

@@ -1,8 +1,8 @@
 /**
- * libcnano for Atari ST
+ * libcnano
  * @file StrLeft.c
  * @brief implementation of StrLeft(), StrRight() and derivatives
- * @copyright (c) 2014 Matthias Arndt <marndt@final-memory.org>
+ * @copyright (c) 2014/2025 Matthias Arndt <marndt@final-memory.org>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,15 +22,9 @@
  * 
  */
 
+#include <stddef.h>
 #include "libcnano.h"
 
-/**
- * @brief compares the a string against the left part of the string 
- * @details The beginning of a string can be checked against a different string.
- * @param[in] src is main string
- * @param[in] left_part is the part to be matched on the left end of the main string
- * @return true if the left part matches
- */
 bool StrLeft(char * src, char * left_part)
 {
     bool match = true;
@@ -47,14 +41,41 @@ bool StrLeft(char * src, char * left_part)
     return match;
 }
 
-/**
- * @brief matches part of a string at an arbitrary position in the main string
- * @details A NULL string never matches.
- * @param[in] src is the main string to be searched
- * @param[in] start_pos is the index position inside the main string
- * @param[in] match_str is the substring searched in the main string
- * @returns true if the sub string is found
- */
+bool StrRight(char * src, char * right_part)
+{
+    bool match = true;
+
+    // Traverse to the end of both strings
+    char * src_end = src;
+    char * right_end = right_part;
+
+    while (*src_end != '\0') src_end++;
+    while (*right_end != '\0') right_end++;
+
+    // Calculate the lengths by subtracting pointers
+    size_t src_len = src_end - src;
+    size_t right_len = right_end - right_part;
+
+    // Ensure `right_part` can fit within `src`
+    if (right_len > src_len)
+    {
+        return false;
+    }
+
+    // Start comparison from the end of `src`
+    src_end = src + (src_len - right_len);
+
+    while ((*right_part != '\0') && match)
+    {
+        if (*src_end++ != *right_part++)
+        {
+            match = false;
+        }
+    }
+
+    return match;
+}
+
 bool StrMid(char * src, uint32_t start_pos, char * match_str)
 {
     bool match = false;
