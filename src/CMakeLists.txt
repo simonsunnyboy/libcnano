@@ -20,4 +20,5 @@ add_library(cnano
 	StrLeft.c
 	StrLen.c
 	StrTrim.c
+	StrCase.c
 )

@@ -166,8 +166,6 @@
      */
     char * StrStr(char * string, char * pattern);
 
-    /** @todo implement StrToUper, StrToLower */
-
     /**
      * @brief Removes leading and trailing spaces and tabs from a string in RAM
      * @details
@@ -212,5 +210,35 @@
      * @note The original string is altered to relocate the trailing NUL.
      */
     char * StrTrimRight(char * string);
+
+    /**
+     * @brief Converts all lowercase letters in a string to uppercase.
+     *
+     * This function processes the input null-terminated string and converts
+     * all lowercase alphabetic characters ('a' to 'z') to their corresponding
+     * uppercase equivalents ('A' to 'Z'). Non-alphabetic characters remain
+     * unchanged.
+     *
+     * @param[in] string Pointer to the null-terminated string to be converted.
+     * @return char* Pointer to the modified input string.
+     *
+     * @note The function modifies the string in place.
+     */
+    char * StrToUpper(char * string);
+
+    /**
+     * @brief Converts all uppercase letters in a string to lowercase.
+     *
+     * This function processes the input null-terminated string and converts
+     * all uppercase alphabetic characters ('A' to 'Z') to their corresponding
+     * lowercase equivalents ('a' to 'z'). Non-alphabetic characters remain
+     * unchanged.
+     *
+     * @param[in] string Pointer to the null-terminated string to be converted.
+     * @return char* Pointer to the modified input string.
+     *
+     * @note The function modifies the string in place.
+     */
+    char * StrToLower(char * string);
 
 #endif
