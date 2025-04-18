@@ -144,12 +144,29 @@
     /**
      * @brief determine length of the given string
      * @details
-     * @param string 
+     * @param[in] string 
      * @return length of string in characters
      */
     int32_t StrLen(char * string);
 
-    /** @todo implement StrStr, StrToUper, StrToLower */
+    /**
+     * @brief Locates the first occurrence of a substring within a string.
+     * @details
+     * This function searches for the first occurrence of the specified pattern
+     * within the given string. If the pattern is found, a pointer to the start of 
+     * the matching substring is returned. If the pattern is not found, the function 
+     * returns NULL.
+     * 
+     * The search is case-sensitive.
+     *
+     * @param[in] string Pointer to the null-terminated target string to search in.
+     * @param[in] pattern Pointer to the null-terminated substring (pattern) to locate.
+     * @return char* Pointer to the beginning of the first occurrence of the pattern 
+     *         within the target string, or NULL if the pattern is not found.
+     */
+    char * StrStr(char * string, char * pattern);
+
+    /** @todo implement StrToUper, StrToLower */
 
     /**
      * @brief Removes leading and trailing spaces and tabs from a string in RAM
@@ -158,7 +175,7 @@
      * characters, specifically spaces (' ') and tabs ('\t'). It returns a pointer 
      * to the first non-whitespace character of the string.
      *
-     * @param string Pointer to the null-terminated string to be trimmed.
+     * @param[in] string Pointer to the null-terminated string to be trimmed.
      * @return char* Pointer to the modified string, starting from the first non-whitespace 
      *         character.
      *
@@ -173,7 +190,7 @@
      * characters, specifically spaces (' ') and tabs ('\t'). It returns a pointer 
      * to the first non-whitespace character of the string.
      *
-     * @param string Pointer to the null-terminated string to be trimmed.
+     * @param[in] string Pointer to the null-terminated string to be trimmed.
      * @return char* Pointer to the modified string, starting from the first non-whitespace 
      *         character.
      *
@@ -188,7 +205,7 @@
      * characters, specifically spaces (' ') and tabs ('\t'). It returns a pointer 
      * to the first non-whitespace character of the string.
      *
-     * @param string Pointer to the null-terminated string to be trimmed.
+     * @param[in] string Pointer to the null-terminated string to be trimmed.
      * @return char* Pointer to the modified string, starting from the first non-whitespace 
      *         character.
      *

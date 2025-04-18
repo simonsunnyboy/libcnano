@@ -63,3 +63,27 @@ int32_t StrCmp(char * str1, char * str2)
 
     return(*str1 - *str2);
 }
+
+char * StrStr(char * string, char * pattern)
+{
+	char * ret = NULL;  /* return NULL if string is not found */
+	int32_t plen = StrLen(pattern);
+
+	/* search only makes sense if pattern length is maximum as long as the target string: */
+	if(StrLen(string) >= plen)
+	{
+		while((string = StrChr(string, *pattern)))  /* search for first character of pattern */
+		{
+			if(StrNcmp(string, pattern, plen) == 0)
+			{
+				/* search string was found, return pointer to substring  */
+				ret = string;
+				break;
+			}
+			++string;
+		}
+
+	}
+
+	return(ret);
+}
